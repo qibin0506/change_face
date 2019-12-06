@@ -61,16 +61,6 @@ def get_rotate_theta(from_landmarks, to_landmarks):
     return to_theta - from_theta
 
 
-def after_rotated(x, y, cx, cy, theta, scale):
-    new_x = x - cx
-    new_y = y - cy
-
-    new_x = np.cos(theta) * new_x * scale + np.sin(theta) * new_y * scale + cx
-    new_y = -np.sin(theta) * new_x * scale + np.cos(theta) * new_y * scale + cy
-
-    return new_x, new_y
-
-
 def compose_img(name, frames_per_transformer, wait_frames, *imgs):
     video_writer = to_video("{}.avi".format(name), imgs[0].shape[1], imgs[0].shape[0])
 
